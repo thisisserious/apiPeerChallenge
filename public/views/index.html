@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Giphy App!</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+    <script src="scripts/client.js"></script>
+  </head>
+  <body ng-app="giphyApp" ng-controller="MainController as main">
+    <!-- any time select new option, ng-change runs the function -->
+    <!-- <select ng-model="main.selected" ng-change="main.getFilmData()">
+      <option ng-repeat="film in main.films" ng-value="film.url">{{ film.title }}</option>
+    </select> -->
+    <main ng-class="main.class">
+      <!-- <p ng-repeat="line in main.lines track by $index">{{ line }}</p> -->
+      <button ng-model="main.gifs" ng-click="main.getGifData()">Random Giphy gif</button>
+      <div ng-src="gif in main.gifs" ng-value="gif.url">
+        {{ main.gifs }}
+        <!--placeholder for random giphy-->
+      </div>
+    </main>
+  </body>
+</html>
