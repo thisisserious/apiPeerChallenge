@@ -6,7 +6,9 @@
     <title>Giphy App!</title>
     <link rel="stylesheet" href="../css/style.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
-    <script src="../scripts/client.js"></script>
+    <script src="scripts/module.js"></script>
+    <script src="scripts/main.controller.js"></script>
+    <script src="scripts/giphyapi.service.js"></script>
 </head>
 
 <body ng-app="giphyApp" ng-controller="MainController as main">
@@ -14,7 +16,7 @@
 
     <main ng-class="main.class">
         <button ng-click="main.randomGifData()">Random Giphy gif</button>
-        <div class="classyDiv"><img ng-src="{{main.gifs}}" /></div>
+        <div class="classyDiv"><img ng-src="{{main.randomGif}}" /></div>
         <input type ="text" ng-model="main.search" />
         <button ng-click ="main.searchGifData()" class="searchBtn">Find Gif</button>
         <ul ng-repeat="gif in main.searchGifs">
