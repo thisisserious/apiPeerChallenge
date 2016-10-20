@@ -2,31 +2,27 @@ var app = angular.module('giphyApp', []);
 
 app.controller('MainController', MainController);
 
-var API = 'http://api.giphy.com/';
+var API = 'http://api.giphy.com/v1/gifs/';
+var key = 'api_key=dc6zaTOxFJmzC';
 
 function MainController($http) {
   var main = this;
   console.log('MainController loaded');
 
-  main.gifs = '';
-  // main.lines = [];
-  main.getGifData = function () {
-    // main.gifs = '';
-    // main.class = '';
-    console.log('inside getGifData');
-    console.log('main.selected', main);
-      $http.get(main.gifs)
+  main.randomGifs = [];
+  main.searchGifs = [];
+
+  main.randomGifData = function () {
+      $http.get(API + 'random?' + key)
       .then(function (response) {
-        console.log('getGifData response', response);
-      main.gifs = response;
-      // main.class = 'scroll';
+        main.gifs = response.data.data.image_url;
       });
     };
-
-  // ask the API for the films thru a promise
-  $http.get(API + 'v1/gifs/random', { params: { api_key: 'dc6zaTOxFJmzC' } })
-    .then(function (response) {
-      console.log('$http get response:', response);
-      main.gifs = response.data.data.image_url;
-    });
+  main.searchGifData = function() {
+    main.q = main.search.replace(' ', '+');
+    $http.get(API + 'search?q=' + main.q + '&' + key)
+      .then(function (response) {
+        main.searchGifs = response.data.data;
+      });
+  }
 }
