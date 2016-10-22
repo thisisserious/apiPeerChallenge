@@ -1,10 +1,10 @@
-# API Peer Challenge
-This is a peer coding challenge in which we practice accessing the Giphy API and allow users to generate a random Giphy.
-Updated 10.20.16 to include a service
+# Weekend 5 Code Challenge
+This will be updated when things change.
 
 ## To Do
+- Set up routes
+- Set up database
 - Style using CSS
 
 # Authors
-- Paul Katchmark
 - Laura Abend
